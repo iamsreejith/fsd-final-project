@@ -1,0 +1,47 @@
+<div style="height: 40rem;">
+    <form (ngSubmit)="addGuest()">
+      <div class="mx-auto" style="width: 200px;">
+        <h2>NEW GUEST</h2>
+      </div>
+        <div class='card-body'>            
+            <div class='table-responsive'>
+              <table class='table'>   
+                  
+                
+              
+                <tbody>  
+                    <tr>
+                        <td> <label>First Name</label></td>
+                        <td><input type="text" name="guest_fname" [(ngModel)]="newGuest.firstName" required/></td>                  
+                      </tr>   
+                      <tr>
+                          <td><label>Last Name</label></td>
+                          <td><input type="text" name="guest_lname" [(ngModel)]="newGuest.lastName" required/></td>                  
+                        </tr>  
+                        <tr>
+                          <td><label>Guest ID</label></td>
+                          <td><input type="text" name="guest_id" [(ngModel)]="newGuest.guestId" required/></td>                  
+                        </tr>  
+                        <tr>
+                          <td><label>Email Address</label></td>
+                          <td><input type="text" name="guest_email" [(ngModel)]="newGuest.emailAddress" required/></td>                  
+                        </tr>  
+                        <tr>
+                          <td><label>Phone Number</label></td>
+                          <td><input type="text" name="guest_phone" [(ngModel)]="newGuest.phoneNumber" required/></td>                  
+                        </tr>  
+                        <tr>
+                          <td> <label>Date Of Birth</label></td>
+                          <td><input type="text" name="guest_dob" [(ngModel)]="newGuest.dob" required/></td>                  
+                        </tr>  
+                        
+                        <tr>
+                          <td></td>
+                          <td><input type="submit" value="Submit" /></td>                  
+                        </tr>             
+                </tbody>
+              </table>
+            </div>
+          </div>
+    </form>
+</div>

@@ -1,0 +1,58 @@
+
+<div style="height: 45rem;" class="  container">
+
+    <div class="row">
+
+
+        <div class="container guest-heading">
+            <div class="row">
+              <div class="col-sm-8"><h1>Appoinments</h1></div>
+              <div class="col-sm-4">
+                
+                <a [routerLink]="['new']"><button type="button" class="btn btn-primary btn-sm">Add New</button></a>
+              </div>
+            </div>
+            
+          </div>
+
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th  scope="col">Guest Name</th>
+            <th (click)="sort('guestId')" scope="col">Guest ID</th>
+            <th (click)="sort('appoinmentID')" scope="col">Appoinment ID</th>
+            <th *ngIf="auth.loggedIn()" scope="col">Ofiicer Name</th> 
+            <th *ngIf="auth.loggedIn()" style="width: 150px;" scope="col">Purpose</th>
+            <th scope="col">Date</th>
+            <th *ngIf="auth.loggedIn()" (click)="sort('status')" scope="col">Status(sort)</th>
+          </tr>
+        </thead>
+        <tbody>
+
+
+
+          <tr *ngFor="let appoinment of apArray | orderBy: key: reverse | paginate: {itemsPerPage:5,currentPage:p}" >
+            <td>{{appoinment.guestName}}</td>
+            <td>{{appoinment.guestId}}</td>
+            <td>{{appoinment.appoinmentID}}</td>
+            <td *ngIf="auth.loggedIn()" >{{appoinment.officerName}}</td>
+            <td *ngIf="auth.loggedIn()">{{appoinment.purpose}}</td>
+            <td>{{appoinment.appoinmentDate}}</td>
+            <td *ngIf="auth.loggedIn()"  ><b>{{appoinment.status == 1? "Waiting" : "Accepted" }}</b></td>
+            <td><button  class="btn btn-primary" *ngIf="auth.loggedIn() && appoinment.status == 1"  (click)="accept(appoinment)" role="button">Accept</button></td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+
+      <div class="mx-auto" style="width: auto;">
+      
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+
+    </div>
+
+
+</div>

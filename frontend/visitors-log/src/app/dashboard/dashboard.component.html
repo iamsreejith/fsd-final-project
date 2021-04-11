@@ -1,0 +1,53 @@
+<div style="height: 45rem;" class="container-fluid">
+  <div class="row">
+    
+   
+      <h2>Recent Appoinments</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Guest Name</th>
+              <th>Guest ID</th>
+              <th>Appoinment ID</th>
+              <th>Date</th>
+              <th>Status</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let appoinment of apArray | orderBy: key: reverse |paginate: {itemsPerPage:7,currentPage:p} ">
+              <td>{{appoinment.guestName}}</td>
+              <td>{{appoinment.guestId}}</td>
+              <td>{{appoinment.appoinmentID}}</td>
+              <td>{{appoinment.appoinmentDate}}</td>
+              <td>{{appoinment.status == 1? "Waiting" : "Accepted" }}</td>
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="one">Recent Guest</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Guest Id</th>
+            <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let guest of guestsArray | orderBy: key: reverse | paginate: {itemsPerPage:7,currentPage:p}" >
+              <td>{{guest.firstName}}</td>
+              <td>{{guest.lastName}}</td>
+              <td>{{guest.guestId}}</td>
+              <td>{{guest.emailAddress}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>

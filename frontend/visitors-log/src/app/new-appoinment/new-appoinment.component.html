@@ -1,0 +1,72 @@
+<div style="height: 40rem;">
+    <form (ngSubmit)="addNewAppoinment()" >
+        <div class="mx-auto" style="width: 300px;">
+          <h2>New Appoinment</h2>
+        </div>
+        <div class='card-body'>            
+            <div class='table-responsive'>
+              <table class='table'>  
+
+               
+
+
+
+                <tbody>  
+                    <tr>
+                        <td> <label>Guest Name</label></td>
+                        <td><input type="text" name="guest_name" [(ngModel)]="newAppoinment.guestName" required></td>                  
+                      </tr>  
+                      <tr>
+                        <td> <label>Guest ID</label></td>
+
+                        <td><input type="text" [(ngModel)]="newAppoinment.guestId"  name="guestid"  required/></td>
+                        <!-- <td><select  class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option selected> Select Your Id</option>
+                            <option *ngFor="let guest of guestsArray" name="guestid" [(ngModel)]="newAppoinment.guestId" [value]="one" >{{guest.guestId}}</option>
+                            
+                            
+                           </select></td>                    -->
+                      </tr>  
+
+
+                      <tr>
+                        <td> <label>New Appoinment ID</label></td>
+
+                        <td><input type="text" [(ngModel)]="newAppoinment.appoinmentID"  name="guestid" required /></td>
+                        <!-- <td><select  class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option selected> Select Your Id</option>
+                            <option *ngFor="let guest of guestsArray" name="guestid" [(ngModel)]="newAppoinment.guestId" [value]="one" >{{guest.guestId}}</option>
+                            
+                            
+                           </select></td>                    -->
+                      </tr> 
+                       
+
+
+                      <tr>
+                          <td><label>Ofiicer</label></td>
+                          <td><input type="text" [(ngModel)]="newAppoinment.officerName" value="one" name="ofiicer_name" required /></td>                  
+                        </tr>  
+                        <tr>
+                          <td><label>Purpose</label></td>
+                          <td><input type="text" [(ngModel)]="newAppoinment.purpose" name="app_purpose" required /></td>                  
+                        </tr>  
+                        <tr>
+                          <td><label>Date</label></td>
+                          <td><input type="text" [(ngModel)]="newAppoinment.appoinmentDate" name="app_data" required /></td>                  
+                        </tr>  
+                        <!-- <tr>
+                          <td><label>Submit</label></td>
+                          <td><input type="text" [(ngModel)]="newAppoinment.status" name="app_sub" /></td>                  
+                        </tr>   -->
+                        
+                        <tr>
+                          <td></td>
+                          <td><input type="submit"  value="Submit" /></td>                  
+                        </tr>             
+                </tbody>
+              </table>
+            </div>
+          </div>
+    </form>
+</div>

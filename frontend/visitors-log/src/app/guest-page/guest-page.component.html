@@ -1,0 +1,70 @@
+
+<div style="height: 45rem;" class="container">
+
+    <div class="row">
+        <!-- <div class="guest-heading">
+            <h1>Guests</h1>
+        </div>
+        <div class="guest-heading">
+            <h1>Guests</h1>
+        </div> -->
+        <div class="container guest-heading">
+            <div class="row">
+              <div class="col-sm-8"><h1>Guests</h1></div>
+              <div class="col-sm-4">
+                
+                <a [routerLink]="['new']"><button type="button"     class="btn btn-primary btn-sm">Add New</button></a>
+              </div>
+            </div>
+            
+          </div>
+
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th style="cursor: pointer;" (click)="sort('firstName')" scope="col">First Name (sort)</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Guest Id</th>
+            <th scope="col">Email</th>
+            <th scope="col">view</th>
+            <th scope="col" *ngIf="auth.loggedIn()">Edit</th>
+            <th scope="col" *ngIf="auth.loggedIn()">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let guest of guestsArray | orderBy: key: reverse | paginate: {itemsPerPage:5,currentPage:p}">
+            
+            <td>{{guest.firstName}}</td>
+            <td>{{guest.lastName}}</td>
+            <td>{{guest.guestId}}</td>
+            <td>{{guest.emailAddress}}</td>
+            <td><a class="btn btn-primary" [routerLink]="['view' , guest._id ]" role="button">view</a></td>
+            <td><button class="btn btn-warning" style="cursor:pointer" *ngIf="auth.loggedIn()" (click)="editGuest(guest)" style="margin-left: 20px;"> Edit</button></td>
+            <td><a routerLink="guest"><button class="btn btn-danger"  *ngIf="auth.loggedIn()" style="cursor:pointer" (click)="deleteGuest(guest)"> Delete</button></a></td>
+          </tr>
+          
+        </tbody>
+       
+  
+      </table>
+
+
+      <div class="mx-auto" style="width: auto;">
+        <!-- <nav aria-label="...">
+            <ul class="pagination pagination-sm">
+              <li class="page-item active" aria-current="page">
+                <span class="page-link">1</span>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+            </ul>
+          </nav> -->
+
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+
+    </div>
+
+
+</div>

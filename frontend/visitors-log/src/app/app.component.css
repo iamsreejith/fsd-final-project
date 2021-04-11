@@ -1,0 +1,12 @@
+.main-body{
+    height: 42rem;
+    margin-left: 200px;
+}
+
+
+
+.row {
+    margin-right: -5px !important;
+    margin-left: 15% !important;
+    margin-top: 2% !important ;
+}
